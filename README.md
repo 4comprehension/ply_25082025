@@ -1,5 +1,5 @@
 In order to prepare for the workshop, we'll need:
-- Java 21
+- Java 24
 - Maven
 - git
 - Docker
