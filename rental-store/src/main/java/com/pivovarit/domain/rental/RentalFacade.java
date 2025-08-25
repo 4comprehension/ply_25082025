@@ -17,5 +17,10 @@ public class RentalFacade {
     }
 
     public void addMovie(MovieAddRequest movieAddRequest) {
+        movieRepository.save(new Movie(new Movie.Id(movieAddRequest.id()), movieAddRequest.title(), Movie.Type.valueOf(movieAddRequest.type())));
+    }
+
+    public Optional<Movie> findByTitle(String title) {
+        return movieRepository.findByTitle(title);
     }
 }

@@ -8,7 +8,7 @@ class RentalConfiguration {
 
     @Bean
     public MovieRepository movieRepository() {
-        return new MovieRepository();
+        return new InMemoryMovieRepository();
     }
 
     @Bean
