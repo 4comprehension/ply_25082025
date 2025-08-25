@@ -12,7 +12,12 @@ class RentalConfiguration {
     }
 
     @Bean
-    public RentalFacade movieService(MovieRepository movieRepository) {
-        return new RentalFacade(movieRepository);
+    public DescriptionsRepository descriptionsRepository() {
+        return new StaticDescriptionsRepository();
+    }
+
+    @Bean
+    public RentalFacade movieService(MovieRepository movieRepository, DescriptionsRepository descriptionsRepository) {
+        return new RentalFacade(movieRepository, descriptionsRepository);
     }
 }
