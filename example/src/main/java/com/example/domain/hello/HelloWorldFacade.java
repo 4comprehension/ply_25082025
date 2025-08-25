@@ -1,10 +1,10 @@
-package com.example.example.service;
+package com.example.domain.hello;
 
-public class HelloWorldService {
+public class HelloWorldFacade {
 
     private final String name;
 
-    HelloWorldService(String name) {
+    HelloWorldFacade(String name) {
         this.name = name;
     }
 

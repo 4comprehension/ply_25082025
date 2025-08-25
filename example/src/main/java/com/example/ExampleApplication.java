@@ -1,6 +1,6 @@
-package com.example.example;
+package com.example;
 
-import com.example.example.service.HelloWorldService;
+import com.example.domain.hello.HelloWorldFacade;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,16 +16,16 @@ public class ExampleApplication {
     @Component
     public static class Runner implements CommandLineRunner {
 
-        private final HelloWorldService helloWorldService;
+        private final HelloWorldFacade helloWorldFacade;
 
-        Runner(HelloWorldService helloWorldService) {
-            this.helloWorldService = helloWorldService;
+        Runner(HelloWorldFacade helloWorldFacade) {
+            this.helloWorldFacade = helloWorldFacade;
         }
 
         @Override
         public void run(String... args) {
             System.out.println("[CommandLineRunner] Starting...");
-            helloWorldService.hello();
+            helloWorldFacade.hello();
         }
     }
 }
