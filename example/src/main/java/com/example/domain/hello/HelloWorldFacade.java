@@ -2,21 +2,18 @@ package com.example.domain.hello;
 
 public class HelloWorldFacade {
 
-    private final String name;
+    private final MessageRepository messageRepository;
 
-    HelloWorldFacade(String name) {
-        this.name = name;
+    HelloWorldFacade(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
     }
 
-    public void hello() {
-        System.out.printf(getMessage());
+    public String getMessage(String messageKey) {
+        return messageRepository.getMessage(messageKey).orElseThrow();
     }
 
-    public String getMessage() {
-        return String.format("Hello, %s!%n", name);
-    }
 
-    public String getMessage(String name) {
-        return String.format("Hello, %s!%n", name);
+    public void saveMessage(String messageKey, String message) {
+        messageRepository.putMessage(messageKey, message);
     }
 }

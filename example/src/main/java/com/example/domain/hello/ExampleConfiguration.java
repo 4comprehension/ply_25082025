@@ -1,6 +1,5 @@
 package com.example.domain.hello;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +7,12 @@ import org.springframework.context.annotation.Configuration;
 class ExampleConfiguration {
 
     @Bean
-    public HelloWorldFacade helloWorldService(@Value("${hello.world.name}") String name) {
-        return new HelloWorldFacade(name);
+    public PostgresMessageRepository postgresMessageRepository() {
+        return new PostgresMessageRepository();
+    }
+
+    @Bean
+    public HelloWorldFacade helloWorldService(MessageRepository messageRepository) {
+        return new HelloWorldFacade(messageRepository);
     }
 }

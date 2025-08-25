@@ -14,18 +14,13 @@ public class ExampleApplication {
     }
 
     @Component
-    public static class Runner implements CommandLineRunner {
-
-        private final HelloWorldFacade helloWorldFacade;
-
-        Runner(HelloWorldFacade helloWorldFacade) {
-            this.helloWorldFacade = helloWorldFacade;
-        }
+    public record Runner(HelloWorldFacade helloWorldFacade) implements CommandLineRunner {
 
         @Override
         public void run(String... args) {
             System.out.println("[CommandLineRunner] Starting...");
-            helloWorldFacade.hello();
+
+            helloWorldFacade.saveMessage("message.hello", "Hello World!");
         }
     }
 }

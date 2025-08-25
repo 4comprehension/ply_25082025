@@ -1,5 +1,9 @@
 package com.example.domain.hello;
 
-class MessageRepository {
-    // fake
+import java.util.Optional;
+
+interface MessageRepository {
+    Optional<String> getMessage(String messageId);
+
+    void putMessage(String messageId, String message);
 }
