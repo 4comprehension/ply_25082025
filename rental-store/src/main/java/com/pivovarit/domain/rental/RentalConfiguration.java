@@ -1,5 +1,7 @@
 package com.pivovarit.domain.rental;
 
+import com.pivovarit.domain.descriptions.Description;
+import com.pivovarit.domain.descriptions.DescriptionsFacade;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,13 +9,18 @@ import org.springframework.context.annotation.Configuration;
 class RentalConfiguration {
 
     @Bean
-    public MovieRepository movieRepository() {
-        return new InMemoryMovieRepository();
+    public DescriptionsFacade descriptionsFacade() {
+        return new DescriptionsFacade();
     }
 
     @Bean
-    public DescriptionsRepository descriptionsRepository() {
-        return new StaticDescriptionsRepository();
+    public DescriptionsRepository descriptionsRepository(DescriptionsFacade descriptionsFacade) {
+        return id -> descriptionsFacade.getDescription(id).map(Description::description);
+    }
+
+    @Bean
+    public MovieRepository movieRepository() {
+        return new InMemoryMovieRepository();
     }
 
     @Bean
