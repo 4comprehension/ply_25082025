@@ -11,8 +11,8 @@
     <modules>
         <module>rental-store</module>
         <module>example</module>
-<!--        <module>example-jpms-hello</module>-->
-<!--        <module>example-jpms-greeting</module>-->
+        <module>example-jpms-hello</module>
+        <module>example-jpms-greeting</module>
     </modules>
 
     <properties>
