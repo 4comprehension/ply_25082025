@@ -1,6 +1,6 @@
-package com.example.example;
+package com.example.example.service;
 
-class HelloWorldService {
+public class HelloWorldService {
 
     private final String name;
 

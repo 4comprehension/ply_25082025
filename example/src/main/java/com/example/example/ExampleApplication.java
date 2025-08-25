@@ -1,5 +1,6 @@
 package com.example.example;
 
+import com.example.example.service.HelloWorldService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
